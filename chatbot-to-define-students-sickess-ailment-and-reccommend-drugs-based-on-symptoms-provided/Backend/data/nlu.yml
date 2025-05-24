@@ -1,0 +1,68 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey
+      - good morning
+      - what's up
+
+  - intent: report_symptoms
+    examples: |
+      - I have a fever
+      - I'm coughing and my throat hurts
+      - I feel tired and have a headache
+      - My stomach hurts and I feel nauseous
+      - I have a fever and chills
+      - My eyes are itchy and watery
+      - I feel stressed and can't focus
+      - I have a runny nose and sneezing
+      - My throat is sore and I’m tired
+      - I cut my finger and it’s bleeding
+      - I feel dizzy and weak
+      - My glands are swollen and I’m exhausted
+      - My nose is stuffy and I’m sneezing
+      - I have a rash and it’s itchy
+      - My muscles ache and I feel sore
+      - I can’t sleep and feel restless
+      - My ankle hurts when I walk
+      - I have pimples on my face
+      - My ear hurts and I can’t hear well
+      - I have cramps in my stomach
+      - I’m wheezing and short of breath
+      - My mouth has sores and it hurts
+      - I feel bloated and have gas
+      - My back hurts when I sit
+      - I have a burning feeling when I pee
+      - I have a high fever
+      - I have severe pain
+      - I have difficulty breathing
+
+  - intent: ask_ailment
+    examples: |
+      - What sickness do I have?
+      - What's wrong with me?
+      - Can you tell me what illness I have?
+      - What could this be?
+      - Why am I feeling like this?
+      - Is this serious?
+      - What’s causing my symptoms?
+
+  - intent: ask_drug
+    examples: |
+      - What medicine should I take?
+      - Can you recommend a drug?
+      - What can I take for this?
+      - Suggest something for my symptoms
+      - Is there a pill for this?
+      - What should I do for these symptoms?
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+      - thanks and bye
+      - take care

@@ -1,0 +1,20 @@
+version: "3.1"
+
+stories:
+  - story: Collect symptoms and diagnose
+    steps:
+      - intent: report_symptoms
+      - action: action_store_symptoms
+      - action: action_listen
+      - intent: ask_ailment
+      - action: utter_disclaimer
+      - action: action_diagnose_ailment
+
+  - story: Collect symptoms and recommend drug
+    steps:
+      - intent: report_symptoms
+      - action: action_store_symptoms
+      - action: action_listen
+      - intent: ask_drug
+      - action: utter_disclaimer
+      - action: action_recommend_drug

@@ -1,0 +1,31 @@
+version: "3.1"
+
+rules:
+  - rule: Say hello when greeted
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Say goodbye when user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Provide disclaimer when asking about ailment
+    steps:
+      - intent: ask_ailment
+      - action: utter_disclaimer
+      - action: action_diagnose_ailment
+
+  - rule: Provide disclaimer when asking about drugs
+    steps:
+      - intent: ask_drug
+      - action: utter_disclaimer
+      - action: action_recommend_drug
+
+  - rule: Handle emergency symptoms
+    condition:
+      - slot_was_set:
+          - emergency_detected: true
+    steps:
+      - action: utter_emergency

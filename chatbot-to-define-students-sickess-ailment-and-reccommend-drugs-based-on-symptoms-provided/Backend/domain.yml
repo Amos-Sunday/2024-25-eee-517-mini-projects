@@ -1,0 +1,52 @@
+version: "3.1"
+
+intents:
+  - greet
+  - report_symptoms
+  - ask_ailment
+  - ask_drug
+  - goodbye
+
+entities:
+  - symptom
+
+slots:
+  symptoms:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: symptom
+  emergency_detected:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: report_symptoms
+        value: true
+        conditions:
+          - active_loop: null
+
+responses:
+  utter_greet:
+    - text: "Hello! I'm here to help with your symptoms. What are you feeling today?"
+    - text: "Hi! Tell me how you're feeling, and I’ll provide some general guidance."
+  utter_goodbye:
+    - text: "Goodbye! Feel better soon, and please see a doctor for professional advice."
+    - text: "Take care! Consult a healthcare provider if you need further help."
+  utter_disclaimer:
+    - text: "I'm not a doctor, but I can offer general suggestions based on your symptoms. Always consult a licensed medical professional for a proper diagnosis and treatment."
+    - text: "Please note that I’m not a medical professional. My suggestions are general, and you should see a doctor for accurate advice."
+  utter_ask_symptoms:
+    - text: "Please tell me more about your symptoms to help me understand better."
+    - text: "Can you share any other symptoms you’re experiencing?"
+  utter_no_symptoms:
+    - text: "I haven’t recorded any symptoms yet. Please share how you’re feeling."
+    - text: "Could you tell me your symptoms? That’ll help me suggest something."
+  utter_emergency:
+    - text: "Your symptoms sound serious. Please seek immediate medical attention from a doctor or emergency services."
+
+actions:
+  - action_store_symptoms
+  - action_diagnose_ailment
+  - action_recommend_drug
